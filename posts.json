@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1790770276491,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "",
+    "image": "",
+    "status": "failed",
+    "error": "Could not resolve authentication method. Expected one of apiKey, authToken, credentials, config, or profile to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted"
+  }
+]
