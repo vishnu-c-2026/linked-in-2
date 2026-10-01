@@ -6,5 +6,135 @@
     "image": "",
     "status": "failed",
     "error": "Could not resolve authentication method. Expected one of apiKey, authToken, credentials, config, or profile to be set. Or for one of the \"X-Api-Key\" or \"Authorization\" headers to be explicitly omitted"
+  },
+  {
+    "id": 1790772585300,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "",
+    "image": "",
+    "status": "failed",
+    "error": "Cannot read properties of undefined (reading 'trim')"
+  },
+  {
+    "id": 1790829372016,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nWe're great at adding megawatts. But a megawatt that can't reach a consumer when they need it is a stranded asset.\n\nOur solar peaks around noon. Our grid stress peaks after sunset, when the sun is gone and demand is highest.\n\nThat mismatch is the real bottleneck. Every evening, coal and gas still fill the gap that solar can't.\n\nThe fix isn't only more panels. A few hours of battery storage paired with solar can shift midday generation into the evening peak, which turns cheap daytime power into firm, dispatchable supply.\n\nTenders that reward firm, time-matched power over raw capacity would change what gets built.\n\nAre we measuring solar success by what we install, or by what we actually deliver when India needs it?\n\n#IndiaEnergy #SolarEnergy #EnergyStorage",
+    "image": "",
+    "status": "failed",
+    "error": "Base image \"base.png\" not found. Save your solar image in this folder with that name."
+  },
+  {
+    "id": 1790830209331,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "",
+    "image": "",
+    "status": "failed",
+    "error": "Claude returned no text for the caption"
+  },
+  {
+    "id": 1790830225075,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "IN",
+    "image": "images/1790830225075.png",
+    "status": "pending",
+    "error": ""
+  },
+  {
+    "id": 1790831533993,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nWe crossed 100 GW of installed solar. But a megawatt on paper isn't a megawatt on the grid.\n\nSolar peaks around noon. India's demand peaks in the evening. Every unit generated at 12 pm that can't be moved to 7 pm is worth less, or gets curtailed.\n\nThe fix isn't one thing:\n\n→ Transmission built before projects, not after\n→ Co-located storage to shift midday power into the evening\n→ Time-of-day tariffs that pull demand toward solar hours\n\nA 2-hour battery paired with a solar plant can be worth more to the grid than 30% extra panels.\n\nCapacity wins headlines. Usable energy wins the transition.\n\nWhat's the biggest bottleneck you're seeing: transmission, storage costs, or demand-side flexibility?\n\n#IndiaEnergy #SolarEnergy #E",
+    "image": "",
+    "status": "failed",
+    "error": "Canva did not return an image URL (check the logged response)"
+  },
+  {
+    "id": 1790831616352,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "",
+    "image": "",
+    "status": "failed",
+    "error": "Claude returned no text for the caption"
+  },
+  {
+    "id": 1790836523316,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nIndia has crossed 100 GW of installed solar. But a megawatt that can't reach a load, or arrives when demand is low, is a stranded asset.\n\nDemand now peaks after sunset. Meanwhile, midday solar in Rajasthan and Gujarat can be curtailed when evacuation lines aren't ready.\n\nThe fix isn't just more panels. Pair solar with 2-4 hour storage, finish transmission on time, and shift flexible loads like agricultural pumping into daylight hours.\n\nCapacity gets announced. Usable energy gets paid for.\n\nWhich bottleneck hurts most today: transmission, storage cost, or demand alignment?\n\n#SolarEnergy #IndiaEnergy #EnergyTransition",
+    "image": "",
+    "status": "failed",
+    "error": "Canva did not return an image URL (check the logged response)"
+  },
+  {
+    "id": 1790836736560,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nA megawatt installed is not a megawatt delivered.\n\nIn Rajasthan and Gujarat, plants can be ready while transmission lines lag. At noon, the grid may have more solar than it can absorb. By 7 PM, demand peaks, the sun is gone, and coal and gas fill the gap.\n\nThe fix is less about adding panels and more about shifting energy:\n\n• Pair solar with 2-4 hour storage\n• Build transmission alongside generation\n• Move flexible loads like agri pumping into solar hours\n\nCapacity wins headlines. Usable energy cuts emissions and bills.\n\nWhat is the biggest bottleneck today: storage, transmission, or demand flexibility?\n\n#IndiaEnergy #Solar #EnergyTransition",
+    "image": "",
+    "status": "failed",
+    "error": "Canva did not return an image URL (check the logged response)"
+  },
+  {
+    "id": 1790837736059,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nIndia has crossed 100 GW of solar. But a megawatt that can't reach a load doesn't count.\n\nSolar peaks at noon in Rajasthan and Gujarat. Demand peaks after sunset. And projects are often ready before the transmission lines are.\n\nThe result: curtailment, stranded assets, and costly evening power.\n\nThe fix: pair solar with storage, build transmission ahead of generation, and shift flexible loads like agricultural pumping into solar hours.\n\nWhich will unlock more usable solar first: storage, transmission, or demand flexibility?\n\n#SolarEnergy #IndiaEnergy #EnergyStorage",
+    "image": "",
+    "status": "failed",
+    "error": "Canva design failed: {\"job_id\":\"66fb9cc8-2c5e-41ae-a428-fa51049212a0\",\"status\":\"failed\",\"failure\":{\"code\":\"quota_exceeded\",\"message\":\"The design generation quota was exceeded.\"}}"
+  },
+  {
+    "id": 1790841136127,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\n\nWe're adding gigawatts at record speed. But a megawatt installed isn't a megawatt delivered.\n\nSolar peaks around noon. Much of India's demand stress arrives after sunset. In solar-rich states, that mismatch, plus transmission bottlenecks, means some midday power gets curtailed while evening peaks are met with costlier thermal or gas.\n\nThe next gains come from making each unit of solar count:\n\n→ Co-located storage to shift noon output into the evening\n→ Transmission built in step with generation\n→ Time-of-day tariffs that move flexible demand to solar hours\n\nCapacity gets headlines. Usability lowers bills and emissions.\n\nWhich lever would unlock the most usable solar in India right now: storage, transmission, or demand shifting?\n\n#IndiaEnergy #SolarEnergy #EnergyStorage",
+    "image": "",
+    "status": "failed",
+    "error": "Canva design failed: {\"job_id\":\"9e85b441-7622-412d-b05e-54937b6964ae\",\"status\":\"failed\",\"failure\":{\"code\":\"quota_exceeded\",\"message\":\"The design generation quota was exceeded.\"}}"
+  },
+  {
+    "id": 1790842414402,
+    "headline": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY",
+    "caption": "INDIA DOESN'T JUST NEED MORE SOLAR CAPACITY. IT NEEDS MORE USABLE SOLAR ENERGY.\r\n\r\nWe've crossed 100 GW of solar. A real milestone. But power that can't reach consumers when they need it is a stranded asset.\r\n\r\nThe gap: solar peaks around noon. Grid stress peaks after sunset, when demand is high and panels produce nothing.\r\n\r\nSo the next gain isn't just another 10 GW. It's:\r\n• Batteries that shift midday power to the evening\r\n• Transmission built in step with generation\r\n• Tariffs that move flexible loads (irrigation pumps, cold storage, industry) into daylight hours\r\n\r\nCapacity earns the headline. Usability delivers the value.\r\n\r\nWhere is the biggest bottleneck today: storage, transmission, or demand-side flexibility?\r\n\r\n#IndiaEnergy #Solar #EnergyStorage",
+    "image": "images/1790842414402.png",
+    "status": "rejected",
+    "error": "Image init failed: 426 {\"status\":426,\"code\":\"NONEXISTENT_VERSION\",\"message\":\"Requested version 20250601 is not active\"}"
+  },
+  {
+    "id": 1790842683761,
+    "headline": "everyone is talking about solar",
+    "caption": "Everyone is talking about solar. Few are talking about 4 PM.\n\nIndia added record solar capacity last year, yet in states like Rajasthan, midday generation is already being curtailed because the grid can't absorb it. Meanwhile, demand peaks after sunset, when we fall back on coal and expensive gas.\n\nThe problem isn't generating cheap power. It's generating it when and where we can use it.\n\nSolar at ₹2.5/unit looks great. But add storage, transmission losses, and balancing costs, and the real price of a reliable evening unit looks very different.\n\nThat's why the next wave of winners won't be panel installers alone. It'll be those solving for:\n\n• Co-located battery storage\n• Green energy corridors that actually get built on time\n• Time-of-day tariffs that shift industrial and agricultural load into daylight hours\n\nCapacity is a headline. Dispatchable, usable power is the real milestone.\n\nWhat's the biggest bottleneck to making solar usable in your state: storage, transmission, or demand?\n\n#SolarEnergy #EnergyTransition #India",
+    "image": "images/1790842683761.png",
+    "status": "pending",
+    "error": ""
+  },
+  {
+    "id": 1790842771142,
+    "headline": "everyone is talking about solar",
+    "caption": "Everyone is talking about solar. Few are talking about 4 PM to 9 PM.\n\nIndia added record solar capacity, yet our demand peak now lands after sunset. Rajasthan and Gujarat can generate cheap power at noon that the grid can't fully absorb. Meanwhile, evening demand is met by coal, gas, and expensive peaking power.\n\nThe insight: the next rupee of value in solar isn't in another panel. It's in shifting energy by a few hours.\n\nA 2-hour battery paired with solar can turn a curtailment problem into firm evening supply. Add time-of-day tariffs that push industrial and agricultural loads toward midday, and you reduce the storage you need in the first place.\n\nCheap generation is only useful when it meets demand.\n\nTransmission, storage, and smarter demand all need to move together with capacity additions.\n\nWhat do you think will unlock more value for India in the next 3 years: storage, transmission, or demand flexibility?\n\n#SolarEnergy #EnergyStorage #IndiaEnergy",
+    "image": "",
+    "status": "failed",
+    "error": "Canva design failed: {\"job_id\":\"5f42cdc7-9bff-4f35-9b9e-d9ef7f646c4e\",\"status\":\"failed\",\"failure\":{\"code\":\"quota_exceeded\",\"message\":\"The design generation quota was exceeded.\"}}"
+  },
+  {
+    "id": 1790846186735,
+    "headline": "INDIA'S SOLAR PPA MARKET JUST HIT A NUMBER MOST PEOPLE MISSED: ₹2.87/UNIT.",
+    "caption": "INDIA'S SOLAR PPA MARKET JUST HIT A NUMBER MOST PEOPLE MISSED: ₹2.87/UNIT\n\nCheap, yes. But a unit at noon is not the same product as a unit at 8 pm.\n\nSolar floods the grid when demand is flat and fades when the evening peak arrives. A discom signing a ₹2.87 PPA may still buy expensive power after sunset, and may curtail solar at midday when supply outruns demand.\n\nSo the real cost is not the tariff alone. It is the tariff plus what it takes to make those units usable:\n\n→ Storage to shift midday output into the evening\n→ Transmission to move power to where demand is\n→ Demand matching, such as agricultural feeders and industrial loads shifted to daylight hours\n\nThe next phase of India's solar story won't be won by who bids lowest. It will be won by who delivers power when the grid needs it.\n\nAre we pricing solar by the unit, or by the hour it's actually worth?\n\n#SolarEnergy #IndiaEnergy #EnergyTransition",
+    "image": "images/1790846186735.png",
+    "status": "pending",
+    "error": ""
+  },
+  {
+    "id": 1790851795136,
+    "headline": "CABINET BACKS ₹1.86 LAKH CRORE GEC-III: STATE GRIDS AND 50 GWH OF BATTERIES FOR 135 GW OF RENEWABLES",
+    "mode": "auto",
+    "caption": "",
+    "image": "",
+    "status": "failed",
+    "error": "\"caption-prompt.txt\" not found. Save your content prompt in this folder with that name."
+  },
+  {
+    "id": 1790852177554,
+    "headline": "KEARNEY: INDIA'S TRANSMISSION BUILD-OUT MISSED TARGETS BY UP TO 50% WHILE 8 TWH OF SOLAR WENT UNUSED",
+    "mode": "auto",
+    "caption": "Kearney: India's transmission build-out missed targets by up to 50% while 8 TWh of solar went unused\n\nIndia has built the panels. The wires haven't kept up.\n\n**What the numbers say**\n\n▪ Kearney says more than 8 TWh of solar was curtailed in Q1 FY2027. That is close to 2% of all electricity generated in the quarter and roughly a fifth of solar output.\n\n▪ The Renewable Energy Minister's figures are consistent: 2,417 GWh in April, 3,235 GWh in May and 2,481 GWh in June. The government cited a mismatch between transmission and renewable project commissioning. The total is 8,133 GWh.\n\n▪ Kearney's analysis of CEA data shows annual transmission additions have consistently missed National Electricity Plan targets, with shortfalls as high as 50% in some years.\n\n**Why it matters**\n\nICRA found about 33% of 54.8 GW of recently commissioned renewable capacity was being evacuated through temporary GNA as of May 2026. Curtailment under T-GNA is highest during solar hours, at 50–60%.\n\nThe catch-up bill is large. The ISTS rolling plan calls for 67,263 circuit km of lines and 629,597 MVA of transformation capacity by FY2030–31, at an estimated INR 4.85 lakh crore.\n\n**The solar-park implication**\n\nA solar park is only as valuable as its ability to evacuate power. Commissioning ahead of the grid means paying for generation that may never be sold.\n\nGrid access has to be treated as a core bankability factor, alongside land, modules and the PPA.\n\n**Kearney's practical levers**\n\nKearney says co-locating storage can free up to 60% of tied-up grid capacity. FACTS and dynamic line rating can add 20–30% more throughput on existing lines.\n\n**The key insight**\n\nKearney's view is that India has an execution and utilization gap, not a funding gap. Building more lines matters, and so does using the existing ones better.\n\nFor us at DeCircle Solar, this is a reminder that solar-park planning starts with evacuation, not with panel count.\n\n**Question for the industry:** Should connectivity and storage be planned together with every new solar park from day one, rather than added after curtailment starts?\n\n#SolarEnergy #India #Transmission #Curtailment #SolarPark #GridInfrastructure #EnergyStorage #RenewableEnergy",
+    "image": "images/1790852177554.png",
+    "status": "pending",
+    "error": ""
   }
 ]
