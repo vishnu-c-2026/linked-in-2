@@ -303,7 +303,7 @@ async function postToLinkedIn(caption, imagePath) {
 
   const headers = {
     Authorization: `Bearer ${token}`,
-    "LinkedIn-Version": process.env.LINKEDIN_VERSION || "202506",
+    "LinkedIn-Version": process.env.LINKEDIN_VERSION || "202609",
     "X-Restli-Protocol-Version": "2.0.0",
     "Content-Type": "application/json",
   };
