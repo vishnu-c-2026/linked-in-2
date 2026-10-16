@@ -35,6 +35,13 @@ When there is limited space, prioritize information in this order:
 Remove unnecessary information before exceeding the word limit.
 
 ==================================================
+COMPANY NAMING
+==================================================
+
+Name only DeCircle Solar. Do not name or hashtag any other company, brand, or
+organisation, and never include another organisation's branded hashtag or @mention.
+
+==================================================
 FINAL QUALITY CHECK
 ==================================================
 
@@ -54,6 +61,7 @@ Before returning the post, check:
 [ ] Easy to scan on mobile
 [ ] Solar-park connection is clear
 [ ] DeCircle Solar mention is natural and short
+[ ] Only DeCircle Solar is named - no other company, brand or branded hashtag
 [ ] ONE key industry insight
 [ ] ONE final discussion question
 [ ] 5–8 relevant hashtags
