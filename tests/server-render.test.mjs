@@ -132,6 +132,69 @@ test("long read-only captions collapse behind an expand button", () => {
   assert.ok(html.includes(row.caption.slice(-30)), "the full text stays on the page");
 });
 
+test("every post renders a Preview button and a hidden Bootstrap-style modal", () => {
+  for (const status of ["pending", "posted", "rejected", "failed"]) {
+    const row = emailRow();
+    row.status = status;
+    const html = renderPostItem(row);
+    assert.match(html, /class="preview-btn"/, `${status} shows a Preview button`);
+    assert.match(html, /class="modal-backdrop" id="pv-1" hidden/, `${status} shows the modal`);
+    assert.match(html, /role="dialog"/);
+    assert.match(html, /DeCircle Solar/);
+  }
+});
+
+test("the Preview button is type=button and opens the modal", () => {
+  const html = renderPostItem(emailRow(), 1, "all");
+  assert.match(html, /<button type="button" class="preview-btn" data-pv="pv-1"/);
+  assert.match(html, /document\.getElementById\(this\.dataset\.pv\)/);
+});
+
+test("editable posts get an editable modal textarea that syncs to the caption field", () => {
+  const html = renderPostItem(emailRow(), 1, "all");
+  assert.match(html, /<textarea id="cap-1" name="caption"/);
+  assert.match(html, /class="li-edit"[^>]*data-sync="cap-1"/);
+  assert.match(html, /oninput="var t=document\.getElementById\(this\.dataset\.sync\);if\(t\)t\.value=this\.value"/);
+});
+
+test("read-only posts get a static preview, not an editable one", () => {
+  const row = emailRow();
+  row.status = "posted";
+  const html = renderPostItem(row);
+  assert.match(html, /class="li-text"/);
+  assert.doesNotMatch(html, /class="li-edit"/);
+});
+
+test("the modal can be dismissed by backdrop, the × and the Close button", () => {
+  const html = renderPostItem(emailRow());
+  assert.match(html, /onclick="if\(event\.target===this\)this\.hidden=true"/);
+  assert.match(html, /class="modal-close"[^>]*aria-label="Close"/);
+  assert.match(html, /class="modal-footer"><button type="button" onclick="document\.getElementById\('pv-1'\)\.hidden=true">Close<\/button>/);
+});
+
+test("the Preview caption is escaped, never executed", () => {
+  const row = emailRow();
+  row.status = "posted";
+  row.caption = "<script>alert('x')</script>";
+  const html = renderPostItem(row);
+  assert.equal(html.includes("<script>"), false);
+  assert.ok(html.includes("&lt;script&gt;"));
+});
+
+test("the Preview modal includes the post image when one exists", () => {
+  const row = emailRow();
+  row.image = "images/1.png";
+  row.imageAt = 12345;
+  assert.match(renderPostItem(row), /class="li-image" src="\/images\/1\.png\?v=12345"/);
+});
+
+test("newsletter drafts also render a Preview button", () => {
+  const row = emailRow();
+  row.mode = "newsletter";
+  row.email = null;
+  assert.match(renderPostItem(row), /class="preview-btn"/);
+});
+
 test("an active filter is carried through the action forms", () => {
   const html = renderPostItem(emailRow(), 1, "posts");
   assert.match(html, /<input type="hidden" name="filter" value="posts">/);

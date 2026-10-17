@@ -1,6 +1,7 @@
 import { esc } from "../util.js";
 import { imageMode } from "../config.js";
 import { snippet } from "./snippet.js";
+import { previewButton, previewModal } from "./preview.js";
 
 export function renderPostItem(r, n, filter = "all") {
   const num = Number.isInteger(n) && n > 0
@@ -24,6 +25,9 @@ export function renderPostItem(r, n, filter = "all") {
     </div>` : "";
   const imgVer = r.imageAt ? `?v=${r.imageAt}` : "";
   const replaceable = !["posted", "rejected"].includes(r.status) && r.mode !== "newsletter";
+  const pvId = `pv-${r.id}`;
+  const taId = `cap-${r.id}`;
+  const editable = ["pending", "failed"].includes(r.status) && r.caption;
   return `
     <section class="item">
       <div>
@@ -38,13 +42,14 @@ export function renderPostItem(r, n, filter = "all") {
         ${emailPanel}${nlPanel}
         ${num}
         <p class="status ${r.status}">${r.status[0].toUpperCase() + r.status.slice(1)}</p>
-        ${["pending", "failed"].includes(r.status) && r.caption
+        ${editable
           ? `<form method="post" action="/approve/${r.id}">
               ${filterField}
-              <textarea name="caption" aria-label="Post text">${esc(r.caption)}</textarea>
+              <textarea id="${taId}" name="caption" aria-label="Post text">${esc(r.caption)}</textarea>
               <div class="row"><button class="approve">Approve and post</button>
-              <button class="reject" formaction="/reject/${r.id}">Reject</button></div></form>`
-          : `<p class="cap-snip">${snippet(r.caption || "")}</p>`}
+              <button class="reject" formaction="/reject/${r.id}">Reject</button>${previewButton({ pvId })}</div></form>`
+          : `<p class="cap-snip">${snippet(r.caption || "")}</p><div class="row">${previewButton({ pvId })}</div>`}
+        ${previewModal({ pvId, caption: r.caption, image: r.image, imageAt: r.imageAt, editable: !!editable, syncId: taId })}
         ${r.error ? `<p class="err">${esc(r.error)}</p>` : ""}
       </div></section>`;
 }

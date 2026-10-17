@@ -92,16 +92,34 @@ test("composeNewsletterDigest returns Gemini's trimmed text and includes the pos
     return { ok: true, status: 200, json: async () => ({ candidates: [{ content: { parts: [{ text: "  Weekly digest.  " }] } }] }) };
   };
 
+  const longUrl = "https://www.linkedin.com/posts/vishnu-vishnu-97b268293_solarenergy-solarparks-renewableenergyindia-activity-7516764742850527232-y7L9";
   const text = await composeNewsletterDigest(
-    [{ url: "https://www.linkedin.com/posts/a", text: "Solar park milestone", postedAt: new Date().toISOString(), reactions: 12, comments: 3 }],
-    { fetchImpl, windowDays: 6 },
+    [{ url: longUrl, text: "Solar park milestone", postedAt: new Date().toISOString(), reactions: 12, comments: 3 }],
+    { fetchImpl, windowDays: 6, shorten: async () => "https://is.gd/Ab3xYz" },
   );
 
   assert.equal(text, "Weekly digest.");
   assert.match(seenPrompt, /Solar park milestone/);
-  assert.match(seenPrompt, /https:\/\/www\.linkedin\.com\/posts\/a/);
-  assert.match(seenPrompt, /Only DeCircle Solar may be named/);
-  assert.match(seenPrompt, /Never publish or post anything/);
+  assert.match(seenPrompt, /Link: https:\/\/is\.gd\/Ab3xYz/);
+  assert.doesNotMatch(seenPrompt, /posts\/vishnu-vishnu/);
+  assert.match(seenPrompt, /newsletter editor for DeCircle Solar/);
+  assert.match(seenPrompt, /Never invent or alter URLs/);
+});
+
+test("composeNewsletterDigest rewrites a full LinkedIn URL echoed in Gemini's output to the short link", async () => {
+  const longUrl = "https://www.linkedin.com/posts/vishnu-vishnu-97b268293_solarenergy-solarparks-renewableenergyindia-activity-7516764742850527232-y7L9";
+  const fetchImpl = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ candidates: [{ content: { parts: [{ text: `Big week.\n\nRead more: ${longUrl}` }] } }] }),
+  });
+
+  const text = await composeNewsletterDigest(
+    [{ url: longUrl, text: "Solar park milestone", postedAt: new Date().toISOString() }],
+    { fetchImpl, apiKey: "k", shorten: async () => "https://is.gd/Ab3xYz" },
+  );
+
+  assert.equal(text, "Big week.\n\nRead more: https://is.gd/Ab3xYz");
 });
 
 test("composeNewsletterDigest rejects missing key, empty and over-limit output", async () => {

@@ -16,8 +16,9 @@ RULES
    like "game-changing" or "revolutionary". No emojis.
 4. Don't copy post text word for word. Rewrite it so it reads like one
    edition, not a pasted list of posts.
-5. Use each post's URL once, as a single "Read more:" line right after its
-   section. Never invent or alter URLs.
+5. Use each post's Link once, as a single "Read more:" line right after its
+   section. Each Link is already a short permalink — copy it exactly as given.
+   Never invent or alter URLs.
 
 STRUCTURE (plain text, no markdown symbols like ** or #, except hashtags)
 - Line 1: a specific subject line, under 70 characters, built around the

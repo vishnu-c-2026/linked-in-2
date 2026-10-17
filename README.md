@@ -103,6 +103,10 @@ image).
   own handle.
 - **Write:** Gemini (`NEWSLETTER_MODEL`, default `gemini-3.1-flash-lite-preview`) writes the
   digest from `prompts/newsletter-prompt.txt`, within LinkedIn's 2,800-char limit.
+- **Links:** each post's URL is shortened (`URL_SHORTENER`, default `is.gd,tinyurl`)
+  so the digest shows a short "Read more:" link instead of the long URL. Set
+  `URL_SHORTENER=none` to keep LinkedIn's canonical permalink. If every
+  shortener fails, the permalink is used so a link is never broken.
 - **Manually:** the **Rewrite newsletter** button on the Newsletter tab, or the
   **Generate newsletter digest** button on the dashboard (both `POST
   /newsletter/generate-digest`).

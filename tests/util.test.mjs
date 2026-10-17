@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { withBusyRetry } from "../src/util.js";
+import { withBusyRetry, shortenLinkedInUrl } from "../src/util.js";
 
 test("withBusyRetry retries 429/503 with the backoff and returns the first success", async () => {
   const delays = [];
@@ -39,4 +39,25 @@ test("withBusyRetry passes non-transient errors straight through and annotates e
     /rate limited \(after 2 attempts\)/,
   );
   assert.deepEqual(delays, [500], "one backoff between two attempts");
+});
+
+test("shortenLinkedInUrl rewrites post URLs to the short permalink form", () => {
+  assert.equal(
+    shortenLinkedInUrl("https://www.linkedin.com/posts/vishnu-vishnu-97b268293_solarenergy-solarparks-renewableenergyindia-activity-7516764742850527232-y7L9"),
+    "https://www.linkedin.com/feed/update/urn:li:activity:7516764742850527232/",
+  );
+  assert.equal(
+    shortenLinkedInUrl("https://www.linkedin.com/feed/update/urn:li:activity:1234567890/"),
+    "https://www.linkedin.com/feed/update/urn:li:activity:1234567890/",
+  );
+  assert.equal(
+    shortenLinkedInUrl("https://www.linkedin.com/posts/x-ugcPost-9876543210-abcd"),
+    "https://www.linkedin.com/feed/update/urn:li:ugcPost:9876543210/",
+  );
+});
+
+test("shortenLinkedInUrl leaves URLs without an id untouched", () => {
+  assert.equal(shortenLinkedInUrl("https://www.linkedin.com/posts/a"), "https://www.linkedin.com/posts/a");
+  assert.equal(shortenLinkedInUrl("https://example.com/article"), "https://example.com/article");
+  assert.equal(shortenLinkedInUrl(""), "");
 });

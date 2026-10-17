@@ -78,6 +78,17 @@ test("long post text renders a word-boundary preview with …more / …less", ()
   assert.ok(html.includes(long.slice(-30)), "the full text is on the page for expansion");
 });
 
+test("the newsletter digest renders a Preview button and a read-only modal", () => {
+  const html = renderNewsletterView({ draft: digestDraft(), days: 6 });
+  assert.match(html, /class="preview-btn"/);
+  assert.match(html, /data-pv="pv-nl-9"/);
+  assert.match(html, /class="modal-backdrop" id="pv-nl-9" hidden/);
+  assert.match(html, /role="dialog"/);
+  assert.match(html, /DeCircle Solar/);
+  assert.match(html, /class="li-text"/);
+  assert.doesNotMatch(html, /class="li-edit"/);
+});
+
 test("short post text renders plainly, with no expand control", () => {
   const html = renderNewsletterView({ draft: digestDraft(), days: 6 });
   assert.ok(!html.includes("nl-clip"));

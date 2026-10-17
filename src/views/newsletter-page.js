@@ -1,5 +1,6 @@
 import { esc } from "../util.js";
 import { snippet } from "./snippet.js";
+import { previewButton, previewModal } from "./preview.js";
 
 const fmtDate = (iso) => {
   const t = Date.parse(iso);
@@ -47,6 +48,8 @@ ${button}
 ${draft.caption
   ? `<div class="nl-digest">${esc(draft.caption)}</div>`
   : `<div class="notice"><p>This digest has no text.</p></div>`}
+<div class="row">${previewButton({ pvId: `pv-nl-${draft.id}` })}</div>
+${previewModal({ pvId: `pv-nl-${draft.id}`, caption: draft.caption, editable: false })}
 ${draft.error ? `<p class="err">${esc(draft.error)}</p>` : ""}
 ${posts.length ? `<h2 class="nl-sub">Posts this week (${posts.length})</h2><ul class="nl-posts">${posts.map(renderPost).join("")}</ul>` : ""}
 <p style="margin-top:20px"><a href="/">Open the dashboard to approve or reject</a></p>`;

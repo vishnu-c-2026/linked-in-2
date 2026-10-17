@@ -1,10 +1,40 @@
 import "dotenv/config";
 import fs from "fs";
 import { NEWSLETTER_PROMPT_FILE } from "../config.js";
-import { withBusyRetry } from "../util.js";
+import { withBusyRetry, shortenLinkedInUrl } from "../util.js";
+import { shortenUrl } from "./shortener.js";
 
 const LINKEDIN_MAX_CHARS = 2800;
 const MAX_POST_CHARS = 1200;
+
+// Rewrites every URL in the model's text to the short link already resolved for
+// it, falling back to the canonical permalink. Trailing punctuation is
+// preserved so sentence text is untouched.
+const shortenUrlsInText = (t, byOriginal) =>
+  t.replace(/https?:\/\/[^\s<>)]+/g, (u) => {
+    const m = u.match(/^(.*?)([.,;:!?]*)$/);
+    return (byOriginal.get(m[1]) || shortenLinkedInUrl(m[1])) + m[2];
+  });
+
+// Resolves one short link per post and records both the original and the
+// canonical URL so anything the model echoes can still be rewritten.
+async function resolveShortLinks(posts, shorten) {
+  const byOriginal = new Map();
+  const resolved = [];
+  for (const p of posts) {
+    const url = p.url || "";
+    if (!url) {
+      resolved.push(p);
+      continue;
+    }
+    const shortUrl = await shorten(url);
+    resolved.push({ ...p, shortUrl });
+    byOriginal.set(url, shortUrl);
+    const canonical = shortenLinkedInUrl(url);
+    if (canonical !== url) byOriginal.set(canonical, shortUrl);
+  }
+  return { resolved, byOriginal };
+}
 
 // Renders the scraped posts into the prompt section Gemini reads.
 function renderPosts(posts) {
@@ -16,7 +46,7 @@ function renderPosts(posts) {
         .join(", ");
       return [
         `${i + 1}. [${when}]${engage ? ` (${engage})` : ""}`,
-        p.url ? `Link: ${p.url}` : "",
+        p.url ? `Link: ${p.shortUrl || shortenLinkedInUrl(p.url)}` : "",
         p.text.slice(0, MAX_POST_CHARS),
       ].filter(Boolean).join("\n");
     })
@@ -33,12 +63,14 @@ export async function composeNewsletterDigest(posts, opts = {}) {
 
   const guide = fs.existsSync(NEWSLETTER_PROMPT_FILE) ? fs.readFileSync(NEWSLETTER_PROMPT_FILE, "utf8") : "";
   const windowDays = opts.windowDays ? `\nPosts cover the last ${opts.windowDays} days.` : "";
+  const shorten = opts.shorten || shortenUrl;
+  const { resolved, byOriginal } = await resolveShortLinks(posts, shorten);
   const task =
     guide +
     "\n\n==================================================\nTHIS WEEK'S POSTS\n==================================================\n" +
     windowDays +
     "\n" +
-    renderPosts(posts) +
+    renderPosts(resolved) +
     "\n\nReturn ONLY the final newsletter post text, with no preface, notes or word count.";
 
   const data = await withBusyRetry(
@@ -73,8 +105,9 @@ export async function composeNewsletterDigest(posts, opts = {}) {
     .trim();
   if (!text) throw new Error(`Gemini returned no text for the newsletter: ${JSON.stringify(data).slice(0, 300)}`);
 
-  if (text.length > LINKEDIN_MAX_CHARS) {
-    throw new Error(`Newsletter is ${text.length} characters; LinkedIn's limit is ${LINKEDIN_MAX_CHARS}.`);
+  const shortened = shortenUrlsInText(text, byOriginal);
+  if (shortened.length > LINKEDIN_MAX_CHARS) {
+    throw new Error(`Newsletter is ${shortened.length} characters; LinkedIn's limit is ${LINKEDIN_MAX_CHARS}.`);
   }
-  return text;
+  return shortened;
 }

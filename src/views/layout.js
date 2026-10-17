@@ -36,6 +36,24 @@ textarea{width:100%;min-height:210px;padding:12px;border:1px solid var(--line);b
 .status{font-weight:600}.posted{color:var(--ok)}.failed{color:var(--bad)}.rejected{color:var(--muted)}.pending{color:var(--amber)}
 .post-num{display:inline-block;margin:0 0 6px;padding:2px 10px;border-radius:999px;background:#e4e9ed;color:var(--muted);font-size:.8rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
 .cap-snip{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+button.preview-btn{background:#e2e7eb;color:var(--ink)}
+button.preview-btn:hover{background:var(--line)}
+.modal-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;background:rgba(20,32,42,.5);overflow:auto}
+.modal-backdrop[hidden]{display:none}
+.modal-dialog{margin:auto;width:100%;max-width:560px;background:#fff;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.25);overflow:hidden}
+.modal-header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.modal-header .li-author{flex:1}
+.modal-close{background:none;border:0;color:var(--muted);font-size:1.5rem;line-height:1;padding:0 6px;cursor:pointer}
+.modal-close:hover{color:var(--ink)}
+.modal-body{padding:16px}
+.modal-body .li-edit{width:100%;min-height:220px;padding:0;border:0;border-radius:0;font:inherit;resize:vertical}
+.modal-body .li-edit:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.modal-footer{display:flex;justify-content:flex-end;gap:10px;padding:12px 16px;border-top:1px solid var(--line)}
+.li-avatar{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--amber);color:#1b1206;display:flex;align-items:center;justify-content:center;font-weight:700}
+.li-author{font-weight:600}
+.li-author .li-when{color:var(--muted);font-weight:400;margin-left:6px}
+.li-text{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.li-image{margin-top:12px;width:100%;border-radius:6px;display:block}
 .cap-snip .nl-more,.cap-snip .nl-less{background:none;border:0;padding:0;margin:0;color:var(--ok);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline}
 .err{color:var(--bad);font-size:.9rem;word-break:break-word}
 table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:6px}
