@@ -195,6 +195,20 @@ test("newsletter drafts also render a Preview button", () => {
   assert.match(renderPostItem(row), /class="preview-btn"/);
 });
 
+test("newsletter items render a Download CSV link scoped to their id", () => {
+  const row = emailRow();
+  row.mode = "newsletter";
+  row.email = null;
+  row.newsletter = { windowDays: 6, postsScraped: 1, posts: [], generatedAt: "2026-10-16T09:00:00Z" };
+  const html = renderPostItem(row);
+  assert.match(html, /class="csv-btn" href="\/newsletter\/download\.csv\?id=1"/);
+  assert.match(html, />Download CSV</);
+});
+
+test("non-newsletter items have no Download CSV link", () => {
+  assert.doesNotMatch(renderPostItem(emailRow()), /download\.csv/);
+});
+
 test("an active filter is carried through the action forms", () => {
   const html = renderPostItem(emailRow(), 1, "posts");
   assert.match(html, /<input type="hidden" name="filter" value="posts">/);

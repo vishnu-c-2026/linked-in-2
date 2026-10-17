@@ -48,7 +48,7 @@ ${button}
 ${draft.caption
   ? `<div class="nl-digest">${esc(draft.caption)}</div>`
   : `<div class="notice"><p>This digest has no text.</p></div>`}
-<div class="row">${previewButton({ pvId: `pv-nl-${draft.id}` })}</div>
+<div class="row">${previewButton({ pvId: `pv-nl-${draft.id}` })}<a class="csv-btn" href="/newsletter/download.csv?id=${draft.id}">Download CSV</a></div>
 ${previewModal({ pvId: `pv-nl-${draft.id}`, caption: draft.caption, editable: false })}
 ${draft.error ? `<p class="err">${esc(draft.error)}</p>` : ""}
 ${posts.length ? `<h2 class="nl-sub">Posts this week (${posts.length})</h2><ul class="nl-posts">${posts.map(renderPost).join("")}</ul>` : ""}

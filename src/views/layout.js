@@ -38,6 +38,8 @@ textarea{width:100%;min-height:210px;padding:12px;border:1px solid var(--line);b
 .cap-snip{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
 button.preview-btn{background:#e2e7eb;color:var(--ink)}
 button.preview-btn:hover{background:var(--line)}
+.csv-btn{display:inline-block;padding:10px 18px;border:1px solid var(--line);border-radius:6px;font-weight:600;text-decoration:none;color:var(--ink);background:#fff}
+.csv-btn:hover{background:#f4f6f8}
 .modal-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;background:rgba(20,32,42,.5);overflow:auto}
 .modal-backdrop[hidden]{display:none}
 .modal-dialog{margin:auto;width:100%;max-width:560px;background:#fff;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.25);overflow:hidden}

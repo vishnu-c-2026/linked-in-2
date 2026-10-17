@@ -22,6 +22,7 @@ export function renderPostItem(r, n, filter = "all") {
       <p class="meta">Newsletter digest &middot; last ${esc(nl.windowDays)} days &middot; ${esc(nl.postsScraped)} post${nl.postsScraped === 1 ? "" : "s"}${nl.trigger ? ` &middot; ${esc(nl.trigger)}` : ""}</p>
       ${nl.generatedAt ? `<p class="meta">Generated ${esc(new Date(nl.generatedAt).toLocaleString())}</p>` : ""}
       ${(nl.posts || []).map((p) => p && p.url).filter(Boolean).slice(0, 10).map((u) => `<p class="meta"><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">Source post</a></p>`).join("")}
+      <p class="meta"><a class="csv-btn" href="/newsletter/download.csv?id=${r.id}">Download CSV</a></p>
     </div>` : "";
   const imgVer = r.imageAt ? `?v=${r.imageAt}` : "";
   const replaceable = !["posted", "rejected"].includes(r.status) && r.mode !== "newsletter";

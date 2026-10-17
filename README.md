@@ -115,6 +115,10 @@ image).
 - **Rewrite:** generating a new digest removes previous *pending* newsletter
   drafts; already-published newsletters are kept as history.
 - The tab lists the posts the digest was built from (date, engagement, link).
+- **Export:** every newsletter has a **Download CSV** button (on the Newsletter
+  tab and on each newsletter card in the dashboard) that downloads that digest's
+  source posts as a CSV (`GET /newsletter/download.csv?id=<id>`) with columns
+  Date, Reactions, Comments, URL, Text.
 
 No Google Sheet is involved. Costs: one Apify run per generation (paid per post
 scraped) plus one Gemini call.

@@ -4,8 +4,37 @@ import { page } from "../views/layout.js";
 import { loadPosts } from "../store.js";
 import { generateNewsletter, latestNewsletterDraft } from "../newsletter.js";
 import { renderNewsletterView } from "../views/newsletter-page.js";
+import { toCsv } from "../csv.js";
 
 export const newsletterRouter = express.Router();
+
+// Columns for the per-newsletter CSV export (one row per source post).
+const CSV_COLUMNS = [
+  { key: "postedAt", label: "Date" },
+  { key: "reactions", label: "Reactions" },
+  { key: "comments", label: "Comments" },
+  { key: "url", label: "URL" },
+  { key: "text", label: "Text" },
+];
+
+const csvFilename = (r) => {
+  const t = Date.parse(r.newsletter?.generatedAt);
+  const day = Number.isFinite(t) ? new Date(t).toISOString().slice(0, 10) : String(r.id);
+  return `newsletter-${day}.csv`;
+};
+
+// Download the source posts behind one newsletter digest as a CSV file.
+// Scoped by ?id= so every newsletter can be exported individually.
+newsletterRouter.get("/download.csv", (req, res) => {
+  const id = Number(req.query.id);
+  const r = loadPosts().find((p) => p.id === id && p.mode === "newsletter");
+  if (!r) return res.status(404).send("Newsletter not found");
+
+  const body = toCsv(r.newsletter?.posts || [], CSV_COLUMNS);
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", `attachment; filename="${csvFilename(r)}"`);
+  res.send(body);
+});
 
 // The tab only ever renders what has already been generated — it never scrapes
 // on load. A new digest is written by the Rewrite button here or by the weekly

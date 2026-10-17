@@ -41,6 +41,13 @@ test("renderNewsletterView shows the empty state with a generate button", () => 
   assert.match(html, /Generate newsletter \(last 6 days\)/);
   assert.match(html, /No newsletter has been generated yet/);
   assert.doesNotMatch(html, /Rewrite newsletter/);
+  assert.doesNotMatch(html, /download\.csv/, "no draft to export");
+});
+
+test("renderNewsletterView offers a CSV download for the digest", () => {
+  const html = renderNewsletterView({ draft: digestDraft(), days: 6 });
+  assert.match(html, /class="csv-btn" href="\/newsletter\/download\.csv\?id=9"/);
+  assert.match(html, />Download CSV</);
 });
 
 test("renderNewsletterView shows the digest, posts and a rewrite button", () => {
